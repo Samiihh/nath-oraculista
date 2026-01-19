@@ -1,0 +1,258 @@
+:root {
+  /* Paleta oficial */
+  --bordo: #460e0c;
+  --dourado: #c7aa5b;
+  --preto: #070607;
+  --branco: #ffffff;
+
+  /* Base do layout */
+  --bg: var(--preto);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.68);
+
+  /* Cards / bordas */
+  --card: rgba(255, 255, 255, 0.06);
+  --stroke: rgba(199, 170, 91, 0.22);
+
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  /* Fundo com aura bordô + dourado */
+  background:
+    radial-gradient(1100px 800px at 18% 12%, rgba(70, 14, 12, 0.55), transparent 55%),
+    radial-gradient(900px 700px at 82% 28%, rgba(199, 170, 91, 0.20), transparent 55%),
+    radial-gradient(700px 600px at 60% 90%, rgba(70, 14, 12, 0.35), transparent 55%),
+    var(--bg);
+
+  color: var(--text);
+}
+
+
+
+body {
+  position: relative;
+  background: var(--preto);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: url("/assets/gatinho-mistico.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.08; /* aqui está o poder */
+  filter: blur(1px) saturate(0.9);
+
+  z-index: -1;
+}
+
+.wrap {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+.hero {
+  padding: 26px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid rgba(199, 170, 91, 0.28);
+  background: rgba(255,255,255,0.06);
+}
+
+.brand__text h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+}
+
+.brand__text p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.muted { color: var(--muted); margin-top: 8px; }
+
+.links {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 16px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(199, 170, 91, 0.22);
+
+  text-decoration: none;
+  color: var(--text);
+
+  background: rgba(255,255,255,0.04);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(199, 170, 91, 0.55);
+  background: rgba(255,255,255,0.06);
+}
+
+.link__left { display: flex; align-items: center; gap: 12px; }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+
+  /* Dourado + bordô: identidade pura */
+  background: linear-gradient(135deg, var(--dourado), var(--bordo));
+  box-shadow: 0 0 18px rgba(199, 170, 91, 0.22);
+}
+
+.link__title { font-weight: 650; letter-spacing: 0.2px; }
+.link__right { opacity: 0.8; }
+
+.note {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+
+  border: 1px dashed rgba(199, 170, 91, 0.40);
+  background: rgba(70, 14, 12, 0.18);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+
+  border: 1px solid rgba(199, 170, 91, 0.28);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn--primary {
+  /* Dourado protagonista, bordô dando base */
+  background: linear-gradient(135deg, rgba(199, 170, 91, 0.95), rgba(70, 14, 12, 0.85));
+  border-color: rgba(199, 170, 91, 0.35);
+  color: rgba(0,0,0,0.88);
+}
+
+.btn--ghost {
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+}
+
+.about {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.about__img img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 22px;
+
+  border: 1px solid rgba(199, 170, 91, 0.28);
+  background: rgba(255,255,255,0.06);
+}
+
+.about__text p {
+  margin-top: 0;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.88);
+}
+
+.bullets {
+  margin: 14px 0 18px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+  padding: 16px 10px;
+}
+
+@media (max-width: 640px) {
+  .brand__text h1 { font-size: 24px; }
+  .about { grid-template-columns: 1fr; }
+  .about__img img { width: 100%; height: 240px; }
+}
+
+
+
+@media (max-width: 768px) {
+  body::before {
+    background-image: url("/assets/gato-mistico.jpeg");
+    background-size: 85%;
+    opacity: 0.05;
+    filter: blur(0.5px) saturate(0.9);
+  }
+}
+
